@@ -16,8 +16,8 @@ class ViewModelFactoryModule {
     abstract fun bindViewModelFactory(viewmodelfactory : ViewModelFactory) : ViewModelProvider.Factory*/
 
     @Provides
-    fun viewModelFactory(providerMap: Map<Class<out ViewModel>, @JvmSuppressWildcards Provider<ViewModel>>):
-            ViewModelProvider.Factory {
+    @Singleton
+    fun viewModelFactory(providerMap: Map<Class<out ViewModel>, Provider<ViewModel>>): ViewModelProvider.Factory {
         return ViewModelFactory(providerMap)
     }
 }

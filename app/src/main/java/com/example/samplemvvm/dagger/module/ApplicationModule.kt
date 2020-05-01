@@ -1,16 +1,19 @@
 package com.example.mymvvm.dagger.modules
 
 import android.app.Application
+import android.content.Context
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named
+import javax.inject.Singleton
 
 @Module
 class ApplicationModule {
 
     @Provides
-    fun provideApplication(app : Application) : Application{
-        return app
+    @Singleton
+    fun provideContext(app : Application) : Context {
+        return app.applicationContext
     }
 
     @Provides
